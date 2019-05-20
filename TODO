@@ -1,0 +1,9 @@
+UML:
+
+    Board Adapter:
+        have a Chessboard board
+        wrap apply move
+        apply move return boolean? so sendEvent return boolean? so it can tell if the pgn is correct
+
+    Need Move class
+
