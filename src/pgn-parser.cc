@@ -2,7 +2,7 @@
 
 #include <fstream>
 #include <regex>
-
+#include <iostream>
 #include "pgn-exception.hh"
 
 namespace pgn_parser
@@ -170,7 +170,7 @@ namespace pgn_parser
         return moves.moves_get();
     }
 
-    board::Move::opt_piece_t MoveTextParser::parse_promotion(char promotion)
+    board::PgnMove::opt_piece_t MoveTextParser::parse_promotion(char promotion)
     {
         return {static_cast<board::PieceType>(promotion)};
     }
@@ -213,7 +213,7 @@ namespace pgn_parser
             ** parse promotion if there is one + move iter
             ** after the '=X' where X is Q,R,B or N
             */
-            board::Move::opt_piece_t promotion;
+            board::PgnMove::opt_piece_t promotion;
 
             if (*iter == '=')
             {
