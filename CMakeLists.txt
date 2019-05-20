@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(Chess LANGUAGES CXX)
 
-add_compile_options(-g -Wall -Wextra -Werror -pedantic -std=c99
+add_compile_options(-g -Wall -Wextra -Werror -pedantic -std=c++17
     -D_DEFAULT_SOURCE)
 
 include_directories(
