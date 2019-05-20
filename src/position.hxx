@@ -24,5 +24,8 @@ namespace board
     {
         return rank_;
     }
-
+    inline int Position::index_get() const
+    {
+        return ((int) file_) * 8 + (int) rank_;
+    }
 } // namespace board

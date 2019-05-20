@@ -1,18 +1,19 @@
 #pragma once
 
 #include <optional>
-
+#include <bitset>
 #include "color.hh"
-#include "piece-type.hh"
-#include "position.hh"
+#include "chessboard-interface.hh"
 
-namespace board
+using namespace board;
+using side_piece_t = std::pair<PieceType, Color>;
+using opt_piece_t = std::optional<side_piece_t>;
+
+class Chessboard : ChessboardInterface
 {
-    class Chessboard
-    {
-    public:
-        using side_piece_t = std::pair<PieceType, Color>;
-        using opt_piece_t = std::optional<side_piece_t>;
-
-    };
-}
+    public :
+        //king, queen, rook, bishop, knight, pawn 6 * 2
+        //board_pieces[i % 2 == 0] --> color is white
+        std::array< std::bitset<64> , 12> board_pieces;
+        opt_piece_t  operator[](const Position& position) const;
+};

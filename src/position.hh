@@ -52,7 +52,7 @@ namespace board
 
         File file_get() const;
         Rank rank_get() const;
-
+        int index_get() const;
         bool operator==(const Position& pos) const;
         bool operator!=(const Position& pos) const;
 
