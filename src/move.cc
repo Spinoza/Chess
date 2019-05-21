@@ -1,10 +1,52 @@
 #include "move.hh"
+/*
 #define A_C std::bitset<64>(0x7f7f7f7f7f7f7f7f)
 #define H_C std::bitset<64>(0xfefefefefefefefe)
 #define 1_L std::bitset<64>(0xffffffffffffff00)
 #define 8_L std::bitset<64>(0xffffffffffffff)
+*/
 
+std::bitset<64> Chessboard::rayTracing(std::bitset<64> position, int dir) const
+{
+    dir = dir;
+    std::bitset<64> findIndex = position;
+    std::bitset<64> borders;
+    if (dir == 1)
+        borders = std::bitset<64>(0x7f7f7f7f7f7f7f7f);
+    else if (dir == -1)
+        borders = std::bitset<64>(0xfefefefefefefefe);
 
+    std::bitset<64> trace (0x00);
+    
+    unsigned index = -1;
+
+    //on peut aussi faire log base 2
+    while (findIndex != 0)
+    {
+        findIndex = findIndex >> 1;
+        index++;
+    }
+
+    //std::cout << index << "\n";
+
+    std::bitset<64> currentPos = position >> dir;
+        std::cout << "curentpos  " << currentPos << "\n";
+        std::cout << "borders  " << borders << "\n";
+    std::bitset<64> valid = currentPos & borders;
+        std::cout << "valid " << valid << "\n";
+    
+    while(valid != 0)
+    {
+        trace |= valid;
+        currentPos = currentPos >> dir;
+        valid = currentPos & borders;
+        std::cout << "valid " << valid << "\n";
+    }
+
+    std::cout << trace << "\n";
+    return findIndex;
+}
+/*
 std::bitset<64> Chessboard::diag(std::bitset<64> position)
 {
 
@@ -114,4 +156,4 @@ std::bitset<64> Chessboard::generateMove(PieceType P, std::bitset<64> position) 
 int numberMoves(const std::bitset<64>& table) const
 {
     return table::count();
-}
+}*/
