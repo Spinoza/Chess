@@ -91,7 +91,7 @@ try
 
 
   Chessboard board{};
-  board.rayTracing(board.board_pieces[1], -1);
+  board.rayTracing(board.board_pieces[1], 1);
 
  
   return 0;

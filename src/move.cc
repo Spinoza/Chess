@@ -6,18 +6,22 @@
 #define 8_L std::bitset<64>(0xffffffffffffff)
 */
 
-std::bitset<64> Chessboard::rayTracing(std::bitset<64> position, int dir) const
+std::bitset<64> Chessboard::rayTracing(std::bitset<64> test, int dir) const
 {
+    test = test;
     dir = dir;
+    std::bitset<64> position  = std::bitset<64>(0x8000000000000000);
     std::bitset<64> findIndex = position;
     std::bitset<64> borders;
+    std::bitset<64> pawn = std::bitset<64>(0x1200100000000000);
     if (dir == 1)
         borders = std::bitset<64>(0x7f7f7f7f7f7f7f7f);
     else if (dir == -1)
         borders = std::bitset<64>(0xfefefefefefefefe);
 
     std::bitset<64> trace (0x00);
-    
+    std::bitset<64> pawnTrace (0x00);
+
     unsigned index = -1;
 
     //on peut aussi faire log base 2
@@ -34,7 +38,7 @@ std::bitset<64> Chessboard::rayTracing(std::bitset<64> position, int dir) const
         std::cout << "borders  " << borders << "\n";
     std::bitset<64> valid = currentPos & borders;
         std::cout << "valid " << valid << "\n";
-    
+
     while(valid != 0)
     {
         trace |= valid;
@@ -44,6 +48,22 @@ std::bitset<64> Chessboard::rayTracing(std::bitset<64> position, int dir) const
     }
 
     std::cout << trace << "\n";
+
+    pawn = trace & pawn;
+
+    currentPos = pawn >> dir;
+    valid = currentPos & borders;
+
+    while(valid != 0)
+    {
+        pawnTrace |= valid;
+        currentPos = valid >> dir;
+        valid = currentPos & borders;
+        std::cout << "valid " << valid << "\n";
+    }
+
+    std::cout << pawnTrace << "\n";
+
     return findIndex;
 }
 /*
