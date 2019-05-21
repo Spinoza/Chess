@@ -14,6 +14,22 @@ class Chessboard : ChessboardInterface
     public :
         //king, queen, rook, bishop, knight, pawn 6 * 2
         //board_pieces[i % 2 == 0] --> color is white
+        Chessboard()
+        {
+            board_pieces[0] = std::bitset<64>();
+            board_pieces[1] = std::bitset<64>();
+            board_pieces[2] = std::bitset<64>();
+            board_pieces[3] = std::bitset<64>();
+            board_pieces[4] = std::bitset<64>();
+            board_pieces[5] = std::bitset<64>();
+            board_pieces[6] = std::bitset<64>();
+            board_pieces[7] = std::bitset<64>();
+            board_pieces[8] = std::bitset<64>();
+            board_pieces[9] = std::bitset<64>();
+            board_pieces[10] = std::bitset<64>();
+            board_pieces[11] = std::bitset<64>();
+
+        }
         std::array< std::bitset<64> , 12> board_pieces;
         opt_piece_t  operator[](const Position& position) const;
         std::bitset<64> full_board() const;

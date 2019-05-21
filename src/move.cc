@@ -30,21 +30,21 @@ std::bitset<64> Chessboard::L()
 
 }
 
-std::bitset<64> Chessboard::generateMove(PieceType P, int pos) const
+std::bitset<64> Chessboard::generateMove(PieceType P, Chessboard position) const
 {
     switch(P)
     {
         case KING :
-            std::bitset<64> result = diag1();
-            return (result &= straight1());
+            std::bitset<64> result = diag1(position);
+            return (result &= straight1(position));
             break;
         case QUEEN :
-            std::bitset<64> result = diag();
-            return (result &= straight());
+            std::bitset<64> result = diag(position);
+            return (result &= straight(position));
         case ROOK :
-            return straight();
+            return straight(position);
         case BISHOP :
-            return diag();
+            return diag(position);
         case KNIGHT :
             return L();
         default :
