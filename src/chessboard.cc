@@ -14,3 +14,11 @@ opt_piece_t Chessboard::operator[](const Position& position) const
     }
     return std::nullopt;
 }
+
+opt_piece_t Chessboard::full_board() const
+{
+    std::bitset<64> result = board_pieces[1];
+    for(int i = 1; i < 12; i++)
+        result &= board_pieces[i];
+    return result;
+}

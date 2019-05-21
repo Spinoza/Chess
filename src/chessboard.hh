@@ -16,4 +16,5 @@ class Chessboard : ChessboardInterface
         //board_pieces[i % 2 == 0] --> color is white
         std::array< std::bitset<64> , 12> board_pieces;
         opt_piece_t  operator[](const Position& position) const;
+        std::bitset<64> full_board() const;
 };
