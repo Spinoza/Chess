@@ -16,21 +16,24 @@ std::bitset<64> Chessboard::diag1(std::bitset<64> position)
     std::bitset<64> t1(position);
     t1 &= H_C; // AND assign
     t1 &= 8_L;
-    t1 += 9;
+    t1 >> 9;
+
     //right down diag
     std::bitset<64> t2(position);
     t2 &= H_C;
     t2 &= 1_L;
+    t2 >> 9
 
     //left up diag
     std::bitset<64> t3(position);
     t3 &= A_C;
     t3 &= 8_L;
-    t3 += 7;
+    t3 >> 7;
     //left down diag
     std::bitset<64> t4(position);
     t4 &= A_C;
     t4 &= 1_L;
+    t4 << 7
 
     t1 |= t3; //OR assign ---> concatenation of the 2 tabs
     t2 |= t4;
@@ -47,21 +50,21 @@ std::bitset<64> Chessboard::straight1(std::bitset<64> position)
     //up
     std::bitset<64> t1(position);
     t1 &= 8_L;
-    t1 -= 8; //shift top
+    t1 << 8; //shift top
     //down
     std::bitset<64> t2(position);
     t2 &= 1_L;
-    t2 += 8;//shift down
+    t2 >> 8;//shift down
 
     //right
     std::bitset<64> t1(position);
     t3 &= H_C;
-    t3 ++;
+    t3 = t3 >> 1;
 
     //left
     std::bitset<64> t2(position);
     t4 &= A_C;
-    t4 --;
+    t4 = t4 << 1;
 
     t1 |= t3;
     t1 |= t4;
