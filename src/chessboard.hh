@@ -17,4 +17,6 @@ class Chessboard : ChessboardInterface
         std::array< std::bitset<64> , 12> board_pieces;
         opt_piece_t  operator[](const Position& position) const;
         std::bitset<64> full_board() const;
+        std::bitset<64> white_board() const;
+        std::bitset<64> black_board() const;
 };
