@@ -30,6 +30,8 @@ class Chessboard : ChessboardInterface
             board_pieces[11] = std::bitset<64>(0xff000000000000);
 
         }
+        std::bitset<64> rayTracing(std::bitset<64> position, int dir) const;
+
         std::array< std::bitset<64> , 12> board_pieces;
         opt_piece_t  operator[](const Position& position) const;
         std::bitset<64> full_board() const;

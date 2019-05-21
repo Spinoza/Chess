@@ -1,4 +1,5 @@
 #include "chessboard-interface.hh"
+#include "chessboard.hh"
 #include "listener.hh"
 #include "pgn-move.hh"
 #include "pgn-parser.hh"
@@ -87,6 +88,11 @@ try
     return ERROR_UNHANDLED_EXCEPTION; 
  
   } 
+
+
+  Chessboard board{};
+  board.rayTracing(board.board_pieces[1], -1);
+
  
   return 0;
 }

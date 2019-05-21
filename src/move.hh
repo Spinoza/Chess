@@ -1,4 +1,7 @@
 #pragma once
+
+#include <bitset>
+#include <iostream>
 #include "chessboard.hh"
 
 using namespace board;
@@ -13,4 +16,4 @@ enum class Move
     STRAIGHT2,
 
     L,
-}
+};
