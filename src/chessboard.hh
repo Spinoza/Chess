@@ -16,18 +16,18 @@ class Chessboard : ChessboardInterface
         //board_pieces[i % 2 == 0] --> color is white
         Chessboard()
         {
-            board_pieces[0] = std::bitset<64>(8);
-            board_pieces[1] = std::bitset<64>(576460752303423488);
-            board_pieces[2] = std::bitset<64>(16);
-            board_pieces[3] = std::bitset<64>(1152921504606846976);
-            board_pieces[4] = std::bitset<64>(129);
-            board_pieces[5] = std::bitset<64>(9295429630892703744);
-            board_pieces[6] = std::bitset<64>(36);
-            board_pieces[7] = std::bitset<64>(2594073385365405696);
-            board_pieces[8] = std::bitset<64>(66);
-            board_pieces[9] = std::bitset<64>(4755801206503243776);
-            board_pieces[10] = std::bitset<64>(65280);
-            board_pieces[11] = std::bitset<64>(71776119061217280);
+            board_pieces[0] = std::bitset<64>(0x8);
+            board_pieces[1] = std::bitset<64>(0x800000000000000);
+            board_pieces[2] = std::bitset<64>(0x10);
+            board_pieces[3] = std::bitset<64>(0x1000000000000000);
+            board_pieces[4] = std::bitset<64>(0x81);
+            board_pieces[5] = std::bitset<64>(0x8100000000000000);
+            board_pieces[6] = std::bitset<64>(0x24);
+            board_pieces[7] = std::bitset<64>(0x2400000000000000);
+            board_pieces[8] = std::bitset<64>(0x42);
+            board_pieces[9] = std::bitset<64>(0x4200000000000000);
+            board_pieces[10] = std::bitset<64>(0xff00);
+            board_pieces[11] = std::bitset<64>(0xff000000000000);
 
         }
         std::array< std::bitset<64> , 12> board_pieces;
