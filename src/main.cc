@@ -96,6 +96,10 @@ try
   std::cout << board.moveRockW(board.board_pieces[3]) << " move West\n";
   std::cout << board.moveRockN(board.board_pieces[3]) << " move North\n";
 
+  std::cout << board.moveBishopNE(board.board_pieces[0]) << " move NorthEast\n";
+  std::cout << board.moveBishopSE(board.board_pieces[1]) << " move SouthEast\n";
+  std::cout << board.moveBishopNW(board.board_pieces[10]) << " move NW\n";
+  std::cout << board.moveBishopSW(board.board_pieces[10]) << " move SW\n";
  
   return 0;
 }
