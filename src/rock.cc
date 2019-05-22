@@ -1,16 +1,37 @@
 #include <iostream>
-
 #include "chessboard.hh"
 
 std::bitset<64> Chessboard::moveRockN(std::bitset<64> position) const
 {
-    return position;
+    std::bitset<64> otherPiece = full_board();
+
+    std::bitset<64> trace (0x00);
+    std::bitset<64> otherTrace (0x00);
+
+    std::bitset<64> currentPos = position << 8;
+
+    while(currentPos != 0)
+    {
+        trace |= currentPos;
+        currentPos = currentPos << 8;
+    }
+
+    otherPiece = trace & otherPiece;
+    currentPos = otherPiece << 8;
+
+    while(currentPos != 0)
+    {
+        otherTrace |= currentPos;
+        currentPos = currentPos << 8;
+    }
+
+    return trace ^ otherTrace;
 }
 
 std::bitset<64> Chessboard::moveRockE(std::bitset<64> position) const
 {
     std::bitset<64> borders = std::bitset<64>(0x7f7f7f7f7f7f7f7f);
-    std::bitset<64> pawn = std::bitset<64>(0x1200100000000000); // Will be removed
+    std::bitset<64> otherPiece = full_board();
 
     std::bitset<64> trace (0x00);
     std::bitset<64> otherTrace (0x00);
@@ -21,16 +42,13 @@ std::bitset<64> Chessboard::moveRockE(std::bitset<64> position) const
     while(valid != 0)
     {
         trace |= valid;
-        currentPos = currentPos >> 1;
+        currentPos = valid >> 1;
         valid = currentPos & borders;
-        std::cout << "valid " << valid << "\n";
     }
 
-    std::cout << trace << "\n";
+    otherPiece = trace & otherPiece;
+    currentPos = otherPiece >> 1;
 
-    pawn = trace & pawn;
-
-    currentPos = pawn >> 1;
     valid = currentPos & borders;
 
     while(valid != 0)
@@ -38,20 +56,68 @@ std::bitset<64> Chessboard::moveRockE(std::bitset<64> position) const
         otherTrace |= valid;
         currentPos = valid >> 1;
         valid = currentPos & borders;
-        std::cout << "valid " << valid << "\n";
     }
 
-    std::cout << otherTrace << "\n";
-
-    return position;
+    return trace ^ otherTrace;
 }
 
 std::bitset<64> Chessboard::moveRockS(std::bitset<64> position) const
 {
-    return position;
+    std::bitset<64> otherPiece = full_board();
+
+    std::bitset<64> trace (0x00);
+    std::bitset<64> otherTrace (0x00);
+
+    std::bitset<64> currentPos = position >> 8;
+
+    while(currentPos != 0)
+    {
+        trace |= currentPos;
+        currentPos = currentPos >> 8;
+    }
+
+    otherPiece = trace & otherPiece;
+    currentPos = otherPiece >> 8;
+
+    while(currentPos != 0)
+    {
+        otherTrace |= currentPos;
+        currentPos = currentPos >> 8;
+    }
+
+    return trace ^ otherTrace;
+
 }
 
 std::bitset<64> Chessboard::moveRockW(std::bitset<64> position) const
 {
-    return position;
+    std::bitset<64> borders = std::bitset<64>(0xfefefefefefefefe);
+    std::bitset<64> otherPiece = full_board();
+
+    std::bitset<64> trace (0x00);
+    std::bitset<64> otherTrace (0x00);
+
+    std::bitset<64> currentPos = position << 1;
+    std::bitset<64> valid = currentPos & borders;
+
+    while(valid != 0)
+    {
+        trace |= valid;
+        currentPos = valid << 1;
+        valid = currentPos & borders;
+    }
+
+    otherPiece = trace & otherPiece;
+    currentPos = otherPiece << 1;
+
+    valid = currentPos & borders;
+
+    while(valid != 0)
+    {
+        otherTrace |= valid;
+        currentPos = valid << 1;
+        valid = currentPos & borders;
+    }
+
+    return trace ^ otherTrace;
 }

@@ -91,7 +91,10 @@ try
 
 
   Chessboard board{};
-  board.rayTracing(board.board_pieces[1], 1);
+  std::cout << board.moveRockE(board.board_pieces[3]) << " move East\n";
+  std::cout << board.moveRockS(board.board_pieces[3]) << " move South\n";
+  std::cout << board.moveRockW(board.board_pieces[3]) << " move West\n";
+  std::cout << board.moveRockN(board.board_pieces[3]) << " move North\n";
 
  
   return 0;

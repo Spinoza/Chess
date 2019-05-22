@@ -19,7 +19,7 @@ std::bitset<64> Chessboard::full_board() const
 {
     std::bitset<64> result = board_pieces[0];
     for(int i = 1; i < 12; i++)
-        result &= board_pieces[i];
+        result |= board_pieces[i];
     return result;
 }
 
