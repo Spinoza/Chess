@@ -31,11 +31,15 @@ class Chessboard : ChessboardInterface
 
         }
         std::bitset<64> rayTracing(std::bitset<64> position, int dir) const;
-        std::bitset<64> moveBishopNE(std::bitset<64> test, int dir) const;
-        std::bitset<64> moveBishopNW(std::bitset<64> test, int dir) const;
-        std::bitset<64> moveBishopSE(std::bitset<64> test, int dir) const;
-        std::bitset<64> moveBishopSW(std::bitset<64> test, int dir) const;
+        std::bitset<64> moveBishopNE(std::bitset<64> position) const;
+        std::bitset<64> moveBishopNW(std::bitset<64> position) const;
+        std::bitset<64> moveBishopSE(std::bitset<64> position) const;
+        std::bitset<64> moveBishopSW(std::bitset<64> position) const;
 
+        std::bitset<64> moveBishopN(std::bitset<64> position) const;
+        std::bitset<64> moveBishopE(std::bitset<64> position) const;
+        std::bitset<64> moveBishopS(std::bitset<64> position) const;
+        std::bitset<64> moveBishopW(std::bitset<64> position) const;
 
         std::array< std::bitset<64> , 12> board_pieces;
         opt_piece_t  operator[](const Position& position) const;
