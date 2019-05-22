@@ -66,6 +66,7 @@ std::bitset<64> Chessboard::rayTracing(std::bitset<64> test, int dir) const
 
     return findIndex;
 }
+
 /*
 std::bitset<64> Chessboard::diag(std::bitset<64> position)
 {
