@@ -133,3 +133,14 @@ std::bitset<64> Chessboard::moveBishopNW(std::bitset<64> position) const
 
     return trace ^ otherTrace;
 }
+
+std::bitset<64> Chessboard::moveBishop(std::bitset<64> position) const
+{
+    std::bitset<64> bishop = moveBishopNE(position);
+
+    bishop |= moveBishopSE(position);
+    bishop |= moveBishopSW(position);
+    bishop |= moveBishopNW(position);
+
+    return bishop;
+}
