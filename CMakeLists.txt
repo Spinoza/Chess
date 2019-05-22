@@ -17,5 +17,5 @@ include_directories(
 ##add_library(linked_list ${CMAKE_SOURCE_DIR}/src/utils/linked_list.c)
 ##EXECUTABLES
 
-add_executable(Chess src/main.cc src/pgn-exception.cc src/pgn-move.cc src/pgn-parser.cc src/uci.cc src/chessboard.cc src/move.cc src/rock.cc)
+add_executable(Chess src/main.cc src/pgn-exception.cc src/pgn-move.cc src/pgn-parser.cc src/uci.cc src/chessboard.cc src/move.cc src/rock.cc src/bishop.cc)
 TARGET_LINK_LIBRARIES(Chess ${Boost_LIBRARIES})
