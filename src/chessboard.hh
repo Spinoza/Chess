@@ -40,6 +40,12 @@ class Chessboard : ChessboardInterface
         std::bitset<64> moveRockS(std::bitset<64> position) const;
         std::bitset<64> moveRockW(std::bitset<64> position) const;
 
+        std::bitset<64> movePawnN(std::bitset<64> position) const;
+        std::bitset<64> movePawnE(std::bitset<64> position) const;
+        std::bitset<64> movePawnS(std::bitset<64> position) const;
+        std::bitset<64> movePawnW(std::bitset<64> position) const;
+
+
         std::array< std::bitset<64> , 12> board_pieces;
         opt_piece_t  operator[](const Position& position) const;
         std::bitset<64> full_board() const;
