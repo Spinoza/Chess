@@ -30,21 +30,27 @@ class Chessboard : ChessboardInterface
             board_pieces[11] = std::bitset<64>(0xff000000000000);
 
         }
+        std::bitset<64> moveBishop(std::bitset<64> position) const;
         std::bitset<64> moveBishopNE(std::bitset<64> position) const;
         std::bitset<64> moveBishopNW(std::bitset<64> position) const;
         std::bitset<64> moveBishopSE(std::bitset<64> position) const;
         std::bitset<64> moveBishopSW(std::bitset<64> position) const;
 
+        std::bitset<64> moveRock(std::bitset<64> position) const;
         std::bitset<64> moveRockN(std::bitset<64> position) const;
         std::bitset<64> moveRockE(std::bitset<64> position) const;
         std::bitset<64> moveRockS(std::bitset<64> position) const;
         std::bitset<64> moveRockW(std::bitset<64> position) const;
 
-        std::bitset<64> movePawnN(std::bitset<64> position) const;
-        std::bitset<64> movePawnE(std::bitset<64> position) const;
-        std::bitset<64> movePawnS(std::bitset<64> position) const;
-        std::bitset<64> movePawnW(std::bitset<64> position) const;
-
+        std::bitset<64> moveKnight(std::bitset<64> position) const;
+        std::bitset<64> moveKnightNElow(std::bitset<64> position) const;
+        std::bitset<64> moveKnightNEhigh(std::bitset<64> position) const;
+        std::bitset<64> moveKnightSElow(std::bitset<64> position) const;
+        std::bitset<64> moveKnightSEhigh(std::bitset<64> position) const;
+        std::bitset<64> moveKnightSWlow(std::bitset<64> position) const;
+        std::bitset<64> moveKnightSWhigh(std::bitset<64> position) const;
+        std::bitset<64> moveKnightNWlow(std::bitset<64> position) const;
+        std::bitset<64> moveKnightNWhigh(std::bitset<64> position) const;
 
         std::array< std::bitset<64> , 12> board_pieces;
         opt_piece_t  operator[](const Position& position) const;

@@ -101,5 +101,8 @@ try
   std::cout << board.moveBishopNW(board.board_pieces[10]) << " move NW\n";
   std::cout << board.moveBishopSW(board.board_pieces[10]) << " move SW\n";
  
+  std::cout << board.moveKnight(board.board_pieces[0]) << " move Knight\n";
+  std::cout << board.moveBishop(board.board_pieces[0]) << " move Bishop\n";
+  std::cout << board.moveRock(board.board_pieces[0]) << " move Rock\n";
   return 0;
 }
