@@ -30,7 +30,6 @@ class Chessboard : ChessboardInterface
             board_pieces[11] = std::bitset<64>(0xff000000000000);
 
         }
-        std::bitset<64> rayTracing(std::bitset<64> position, int dir) const;
         std::bitset<64> moveBishopNE(std::bitset<64> position) const;
         std::bitset<64> moveBishopNW(std::bitset<64> position) const;
         std::bitset<64> moveBishopSE(std::bitset<64> position) const;
