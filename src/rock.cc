@@ -121,3 +121,14 @@ std::bitset<64> Chessboard::moveRockW(std::bitset<64> position) const
 
     return trace ^ otherTrace;
 }
+
+std::bitset<64> Chessboard::moveRock(std::bitset<64> position) const
+{
+    std::bitset<64> rock = moveRockN(position);
+
+    rock |= moveRockS(position);
+    rock |= moveRockE(position);
+    rock |= moveRockW(position);
+
+    return rock;
+}
