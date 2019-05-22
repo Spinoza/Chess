@@ -36,10 +36,10 @@ class Chessboard : ChessboardInterface
         std::bitset<64> moveBishopSE(std::bitset<64> position) const;
         std::bitset<64> moveBishopSW(std::bitset<64> position) const;
 
-        std::bitset<64> moveBishopN(std::bitset<64> position) const;
-        std::bitset<64> moveBishopE(std::bitset<64> position) const;
-        std::bitset<64> moveBishopS(std::bitset<64> position) const;
-        std::bitset<64> moveBishopW(std::bitset<64> position) const;
+        std::bitset<64> moveRockN(std::bitset<64> position) const;
+        std::bitset<64> moveRockE(std::bitset<64> position) const;
+        std::bitset<64> moveRockS(std::bitset<64> position) const;
+        std::bitset<64> moveRockW(std::bitset<64> position) const;
 
         std::array< std::bitset<64> , 12> board_pieces;
         opt_piece_t  operator[](const Position& position) const;
