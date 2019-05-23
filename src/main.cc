@@ -1,3 +1,4 @@
+#include "test_rules.hh"
 #include "chessboard-interface.hh"
 #include "chessboard.hh"
 #include "listener.hh"

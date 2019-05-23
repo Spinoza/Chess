@@ -16,19 +16,24 @@ class Chessboard : ChessboardInterface
         //board_pieces[i % 2 == 0] --> color is white
         Chessboard()
         {
+            //k
             board_pieces[0] = std::bitset<64>(0x8);
             board_pieces[1] = std::bitset<64>(0x800000000000000);
+            //q
             board_pieces[2] = std::bitset<64>(0x10);
             board_pieces[3] = std::bitset<64>(0x1000000000000000);
+            //r
             board_pieces[4] = std::bitset<64>(0x81);
             board_pieces[5] = std::bitset<64>(0x8100000000000000);
+            //b
             board_pieces[6] = std::bitset<64>(0x24);
             board_pieces[7] = std::bitset<64>(0x2400000000000000);
+            //kg
             board_pieces[8] = std::bitset<64>(0x42);
             board_pieces[9] = std::bitset<64>(0x4200000000000000);
+            //p
             board_pieces[10] = std::bitset<64>(0xff00);
             board_pieces[11] = std::bitset<64>(0xff000000000000);
-
         }
 
         std::bitset<64> moveRock(std::bitset<64> position, Color color) const;
@@ -69,6 +74,8 @@ class Chessboard : ChessboardInterface
         std::bitset<64> movePawnForward(std::bitset<64> position, Color color) const;
         std::bitset<64> movePawnForward2(std::bitset<64> position, Color color) const;
         std::bitset<64> movePawnDiag(std::bitset<64> position, Color color) const;
+
+        bool isCheckB() const;
 
         std::array< std::bitset<64> , 12> board_pieces;
         opt_piece_t  operator[](const Position& position) const;
