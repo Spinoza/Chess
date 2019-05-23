@@ -95,6 +95,10 @@ try
   std::bitset<64> queen = std::bitset<64>(0x1000000000);
   std::bitset<64> king = std::bitset<64>(0x100000);
 
+    test_checkB1();
+    std::cout << false << "f\n";
+    std::bitset<64> bish = std::bitset<64>(0x40040000);
+
   Chessboard board{};
   std::cout << board.moveRockE(board.board_pieces[3]) << " move East\n";
   std::cout << board.moveRockS(board.board_pieces[3]) << " move South\n";

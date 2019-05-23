@@ -75,7 +75,7 @@ class Chessboard : ChessboardInterface
         std::bitset<64> movePawnForward2(std::bitset<64> position, Color color) const;
         std::bitset<64> movePawnDiag(std::bitset<64> position, Color color) const;
 
-        bool isCheckB() const;
+        bool isCheck(board::Color color) const;
 
         std::array< std::bitset<64> , 12> board_pieces;
         opt_piece_t  operator[](const Position& position) const;
