@@ -30,6 +30,12 @@ class Chessboard : ChessboardInterface
             board_pieces[11] = std::bitset<64>(0xff000000000000);
 
         }
+
+        std::bitset<64> movePawn(std::bitset<64> position, Color color) const;
+        std::bitset<64> movePawnForward(std::bitset<64> position, Color color) const;
+        std::bitset<64> movePawnForward2(std::bitset<64> position, Color color) const;
+        std::bitset<64> movePawnDiag(std::bitset<64> position, Color color) const;
+
         std::bitset<64> moveBishop(std::bitset<64> position, Color color) const;
         std::bitset<64> moveBishopNE(std::bitset<64> position) const;
         std::bitset<64> moveBishopNW(std::bitset<64> position) const;
