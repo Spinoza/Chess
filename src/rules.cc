@@ -1,10 +1,10 @@
 #include "chessboard.hh"
 
 
-bool Chessboard::isCheckB(board::Color color) const
+bool Chessboard::isCheck(board::Color color) const
 {
     int k, k2, q, r, b, kn, p;
-    if (color == board::Color::White)
+    if (color == board::Color::WHITE)
     {
         k = 0;
         k2 = 1;
@@ -13,7 +13,7 @@ bool Chessboard::isCheckB(board::Color color) const
         b = 7;
         kn = 9;
         p = 11;
-        color = board::Color::Black;
+        color = board::Color::BLACK;
     }
     else
     {
@@ -24,7 +24,7 @@ bool Chessboard::isCheckB(board::Color color) const
         b = 6;
         kn = 8;
         p = 10;
-        color = board::Color::White;
+        color = board::Color::WHITE;
     }
 
     std::bitset<64> king = board_pieces[k];
@@ -39,18 +39,5 @@ bool Chessboard::isCheckB(board::Color color) const
 
     if ((king & threat) != 0)
         return false;
-    return true;
-}
-
-
-bool Chessboard::isCheckW() const
-{
-    std::bitset<64> w_k = board_pieces[0];
-
-    //check for w_k, move black piece
-    std::bitset<64> b_threat = moveRock(board_pieces[2]);
-    b_threat &= moveBishop(board_pieces[4]);
-    b_threat &= moveKnight(board_pieces[6]);
-    b_threat &= movePawn(board_pieces[8]);
     return true;
 }
