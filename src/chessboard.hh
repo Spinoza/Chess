@@ -31,17 +31,6 @@ class Chessboard : ChessboardInterface
 
         }
 
-        std::bitset<64> movePawn(std::bitset<64> position, Color color) const;
-        std::bitset<64> movePawnForward(std::bitset<64> position, Color color) const;
-        std::bitset<64> movePawnForward2(std::bitset<64> position, Color color) const;
-        std::bitset<64> movePawnDiag(std::bitset<64> position, Color color) const;
-
-        std::bitset<64> moveBishop(std::bitset<64> position, Color color) const;
-        std::bitset<64> moveBishopNE(std::bitset<64> position) const;
-        std::bitset<64> moveBishopNW(std::bitset<64> position) const;
-        std::bitset<64> moveBishopSE(std::bitset<64> position) const;
-        std::bitset<64> moveBishopSW(std::bitset<64> position) const;
-
         std::bitset<64> moveRock(std::bitset<64> position, Color color) const;
         std::bitset<64> moveRockN(std::bitset<64> position) const;
         std::bitset<64> moveRockE(std::bitset<64> position) const;
@@ -57,6 +46,29 @@ class Chessboard : ChessboardInterface
         std::bitset<64> moveKnightSWhigh(std::bitset<64> position) const;
         std::bitset<64> moveKnightNWlow(std::bitset<64> position) const;
         std::bitset<64> moveKnightNWhigh(std::bitset<64> position) const;
+
+        std::bitset<64> moveBishop(std::bitset<64> position, Color color) const;
+        std::bitset<64> moveBishopNE(std::bitset<64> position) const;
+        std::bitset<64> moveBishopNW(std::bitset<64> position) const;
+        std::bitset<64> moveBishopSE(std::bitset<64> position) const;
+        std::bitset<64> moveBishopSW(std::bitset<64> position) const;
+
+        std::bitset<64> moveQueen(std::bitset<64> position, Color color) const;
+
+        std::bitset<64> moveKing(std::bitset<64> position, Color color) const;
+        std::bitset<64> moveKingN(std::bitset<64> position) const;
+        std::bitset<64> moveKingNE(std::bitset<64> position) const;
+        std::bitset<64> moveKingE(std::bitset<64> position) const;
+        std::bitset<64> moveKingSE(std::bitset<64> position) const;
+        std::bitset<64> moveKingS(std::bitset<64> position) const;
+        std::bitset<64> moveKingSW(std::bitset<64> position) const;
+        std::bitset<64> moveKingW(std::bitset<64> position) const;
+        std::bitset<64> moveKingNW(std::bitset<64> position) const;
+
+        std::bitset<64> movePawn(std::bitset<64> position, Color color) const;
+        std::bitset<64> movePawnForward(std::bitset<64> position, Color color) const;
+        std::bitset<64> movePawnForward2(std::bitset<64> position, Color color) const;
+        std::bitset<64> movePawnDiag(std::bitset<64> position, Color color) const;
 
         std::array< std::bitset<64> , 12> board_pieces;
         opt_piece_t  operator[](const Position& position) const;
