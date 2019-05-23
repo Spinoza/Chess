@@ -89,6 +89,7 @@ try
  
   } 
 
+    std::bitset<64> bish = std::bitset<64>(0x40040000);
 
   Chessboard board{};
   std::cout << board.moveRockE(board.board_pieces[3]) << " move East\n";
@@ -101,8 +102,8 @@ try
   std::cout << board.moveBishopNW(board.board_pieces[10]) << " move NW\n";
   std::cout << board.moveBishopSW(board.board_pieces[10]) << " move SW\n";
  
-  std::cout << board.moveKnight(board.board_pieces[0]) << " move Knight\n";
-  std::cout << board.moveBishop(board.board_pieces[0]) << " move Bishop\n";
-  std::cout << board.moveRock(board.board_pieces[0]) << " move Rock\n";
+  std::cout << board.moveKnight(bish, Color::WHITE) << " move Knight\n";
+  std::cout << board.moveBishop(bish, Color::WHITE) << " move Bishop\n";
+  std::cout << board.moveRock(bish, Color::WHITE) << " move Rock\n";
   return 0;
 }
