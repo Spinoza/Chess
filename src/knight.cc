@@ -89,41 +89,7 @@ std::bitset<64> Chessboard::moveKnightNWhigh(std::bitset<64> position) const
     return valid;
 }
 
-
-std::bitset<64> Chessboard::moveKnightNW(std::bitset<64> position) const
-{
-    std::bitset<64> borders = std::bitset<64>(0xfefefefefefefefe);
-    std::bitset<64> otherPiece = full_board();
-
-    std::bitset<64> trace (0x00);
-    std::bitset<64> otherTrace (0x00);
-
-    std::bitset<64> currentPos = position << 9;
-    std::bitset<64> valid = currentPos & borders;
-
-    while(valid != 0)
-    {
-        trace |= valid;
-        currentPos = valid << 9;
-        valid = currentPos & borders;
-    }
-
-    otherPiece = trace & otherPiece;
-    currentPos = otherPiece << 9;
-
-    valid = currentPos & borders;
-
-    while(valid != 0)
-    {
-        otherTrace |= valid;
-        currentPos = valid << 9;
-        valid = currentPos & borders;
-    }
-
-    return trace ^ otherTrace;
-}
-
-std::bitset<64> Chessboard::moveKnight(std::bitset<64> position) const
+std::bitset<64> Chessboard::moveKnight(std::bitset<64> position, Color color) const
 {
     std::bitset<64> knight = moveKnightNElow(position);
 
@@ -134,6 +100,11 @@ std::bitset<64> Chessboard::moveKnight(std::bitset<64> position) const
     knight |= moveKnightSWhigh(position);
     knight |= moveKnightNWlow(position);
     knight |= moveKnightNWhigh(position);
+
+    if (color == Color::WHITE)
+        return knight & ~white_board();
+    else
+        return knight & ~black_board();
 
     return knight;
 }

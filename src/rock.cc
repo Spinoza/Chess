@@ -122,7 +122,7 @@ std::bitset<64> Chessboard::moveRockW(std::bitset<64> position) const
     return trace ^ otherTrace;
 }
 
-std::bitset<64> Chessboard::moveRock(std::bitset<64> position) const
+std::bitset<64> Chessboard::moveRock(std::bitset<64> position, Color color) const
 {
     std::bitset<64> rock = moveRockN(position);
 
@@ -130,5 +130,8 @@ std::bitset<64> Chessboard::moveRock(std::bitset<64> position) const
     rock |= moveRockE(position);
     rock |= moveRockW(position);
 
-    return rock;
+    if (color == Color::WHITE)
+        return rock & ~white_board();
+    else
+        return rock & ~black_board();
 }
