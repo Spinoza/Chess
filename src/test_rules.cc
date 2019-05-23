@@ -16,7 +16,7 @@ void test_checkB1()
     Chessboard board{};
 
     //b k
-    board.board_pieces[1] = std::bitset<64>(0x800);
+    board.board_pieces[1] = std::bitset<64>(0x80);
 
     //w rock
     board.board_pieces[4] = std::bitset<64>(0x80000000000);
@@ -27,5 +27,5 @@ void test_checkB1()
     //w pawn
     board.board_pieces[10] = std::bitset<64>(0x0);
 
-    std::cout << board.isCheckB() << "\n";
+    std::cout << board.isCheck(board::Color::BLACK) << "\n";
 }

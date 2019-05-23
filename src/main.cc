@@ -97,7 +97,6 @@ try
 
     test_checkB1();
     std::cout << false << "f\n";
-    std::bitset<64> bish = std::bitset<64>(0x40040000);
 
   Chessboard board{};
   std::cout << board.moveRockE(board.board_pieces[3]) << " move East\n";
